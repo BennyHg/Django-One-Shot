@@ -15,12 +15,12 @@
             </tr>
           </thead>
           <tbody>
+            {% for list in todolist_list %}
             <tr>
-                <td>Reminders</td>
+              <td><a href="{% url 'show_todolist' list.pk %}">{{ list.name }}</a></td>
+              <td>{{ list.items.all|length }}</td>
             </tr>
-            <tr>
-                <td>Grocery List</td>
-            </tr>
+            {% endfor %}
           </tbody>
         </table>
       </div>

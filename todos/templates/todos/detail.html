@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <main>
+      <div>
+        <h1>Reminders</h1>
+        <h2>Tasks</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>Due date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in todolist.items.all %}
+                <tr>
+                <td><a href="">{{ item.task }}</a></td>
+                <td>{{ item.due_date }}</td>
+                </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>
