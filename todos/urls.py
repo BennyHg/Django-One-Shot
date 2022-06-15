@@ -2,6 +2,7 @@ from django.urls import path
 from todos.views import (
     TodoCreateView,
     TodoDeleteView,
+    TodoItemUpdateView,
     TodoListView,
     TodoDetailView,
     TodoUpdateView,
@@ -19,4 +20,9 @@ urlpatterns = [
         TodoItemCreateView.as_view(),
         name="create_todoitem"
         ),
+    path(
+        "items/<int:pk>/edit/",
+        TodoItemUpdateView.as_view(),
+        name="update_todoitem"
+    ),
 ]
