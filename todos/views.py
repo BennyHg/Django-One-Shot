@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 # Create your views here.
 
 from todos.models import TodoList
@@ -34,3 +34,9 @@ class TodoUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse_lazy("show_todolist", args=[self.object.id])
+
+
+class TodoDeleteView(DeleteView):
+    model = TodoList
+    template_name = "todos/delete.html"
+    success_url = reverse_lazy("list_todos")
